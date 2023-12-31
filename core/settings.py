@@ -117,7 +117,7 @@ JAZZMIN_SETTINGS = {
     "navigation_expanded": True,
     "hide_apps": [],
     "hide_models": [],
-    "order_with_respect_to": ["auth", "books", "books.author", "books.book"],
+    "order_with_respect_to": ["auth", "books", "Main.Theme", "Main.Header", "Main.Carrousel"],
     "custom_links": {
         "books": [{
             "name": "Make Messages", 
@@ -145,6 +145,7 @@ JAZZMIN_SETTINGS = {
     "changeform_format": "horizontal_tabs",
     "changeform_format_overrides": {"auth.user": "collapsible",
                                     "auth.group": "vertical_tabs",
-                                    "Main.Carrousel": "horizontal_tabs"},
+                                    "Main.Carrousel": "horizontal_tabs"
+                                    },
     "language_chooser": False,
 }
