@@ -22,6 +22,18 @@ class Theme(models.Model):
     def __str__(self):
         return self.main_color
     
+    def get_object():
+        # Intenta obtener la única instancia
+        instance, created = Theme.objects.get_or_create(pk=1)
+        return instance
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
+    
     class Meta:
         verbose_name = 'Theme / Tema'
         verbose_name_plural = 'Theme / Tema'
@@ -34,6 +46,18 @@ class Header(models.Model):
     
     def __str__(self):
         return self.title
+    
+    def get_object():
+        # Intenta obtener la única instancia
+        instance, created = Theme.objects.get_or_create(pk=1)
+        return instance
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
     
     class Meta:
         verbose_name = 'Header / Encabezado'
@@ -55,6 +79,18 @@ class Carrousel(models.Model):
     image_2 = models.ImageField(upload_to=carrousel_img, verbose_name="Image / Imágen")
     button_link_2 = models.CharField(max_length=500, verbose_name="Button Link / Enlace del Botón")
 
+    def get_object():
+        # Intenta obtener la única instancia
+        instance, created = Theme.objects.get_or_create(pk=1)
+        return instance
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
+    
     class Meta:
         verbose_name = 'Carrousel / Carrusel'
         verbose_name_plural = 'Carrousel / Carrusel'
@@ -62,6 +98,18 @@ class Carrousel(models.Model):
 class Service(models.Model):
     title = models.CharField(verbose_name="Title/Título", max_length=500)
     sub_title = models.TextField(verbose_name="Subtitle/Subtítulo")
+    
+    def get_object():
+        # Intenta obtener la única instancia
+        instance, created = Theme.objects.get_or_create(pk=1)
+        return instance
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
     
 class Services_Item(models.Model):
     name = models.CharField(max_length=500)
