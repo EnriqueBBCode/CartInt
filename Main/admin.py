@@ -1,7 +1,21 @@
 from django.contrib import admin
 from .models import *
+from django.forms.widgets import TextInput
+from django import forms
 
-admin.site.register(Theme)
+class CarrouselForm(forms.ModelForm):
+    class Meta:
+        model=Theme
+        fields = '__all__'
+        widgets={
+            'main_color':TextInput(attrs={'type':'color'}),
+            'button_colors':TextInput(attrs={'type':'color'})
+        }
+
+# admin.site.register(Theme)
+@admin.register(Theme)
+class ThemeAdmin(admin.ModelAdmin):
+    form = CarrouselForm
 admin.site.register(Header)
 # admin.site.register(Carrousel)
 @admin.register(Carrousel)

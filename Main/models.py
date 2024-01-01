@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.safestring import mark_safe
 
 def carrousel_img(instance,filename):
     return f"carrousel/{filename}"
@@ -20,7 +21,7 @@ class Theme(models.Model):
     button_colors = models.CharField(max_length=30,verbose_name="Button Colors / Colores de los Botones")
     
     def __str__(self):
-        return self.main_color
+        return mark_safe(f"<b style='text-transform:uppercase;font-weight:700;color:{self.main_color}'>Main Color / Color Principal</b> | <b style='text-transform:uppercase;font-weight:700;color:{self.button_colors}'>Main Color / Color Principal</b>")
     
     def get_object():
         # Intenta obtener la única instancia
@@ -45,7 +46,7 @@ class Header(models.Model):
     location = models.CharField(max_length=200, verbose_name="Location / Ubicación")
     
     def __str__(self):
-        return self.title
+        return "Header / Encabezado"
     
     def get_object():
         # Intenta obtener la única instancia
@@ -78,6 +79,9 @@ class Carrousel(models.Model):
     sub_title_2 = models.TextField(verbose_name="Subtitle / Subtítulo")
     image_2 = models.ImageField(upload_to=carrousel_img, verbose_name="Image / Imágen")
     button_link_2 = models.CharField(max_length=500, verbose_name="Button Link / Enlace del Botón")
+
+    def __str__(self):
+        return "Carrousel / Carrusel"
 
     def get_object():
         # Intenta obtener la única instancia

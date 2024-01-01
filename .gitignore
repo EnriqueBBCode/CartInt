@@ -1,3 +1,4 @@
 venv/
 README.txt
 db.sqlite3
+log
