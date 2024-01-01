@@ -2,3 +2,7 @@ venv/
 README.txt
 db.sqlite3
 log
+core/__pycache__/
+Main/__pycache__/
+Main/migrations/
+media/
