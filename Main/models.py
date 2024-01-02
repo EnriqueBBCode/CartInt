@@ -168,23 +168,23 @@ class Track(models.Model):
         verbose_name = 'Track Shiping / Encontrar Carga'
         verbose_name_plural = 'Track Shiping / Encontrar Carga'
 
-class Our_clients(models.Model):
-    title = models.CharField(verbose_name="Title/Título", max_length=500)
+# class Our_clients(models.Model):
+#     title = models.CharField(verbose_name="Title/Título", max_length=500)
 
-class Our_clients_items(models.Model):
-    image = models.ImageField(upload_to=user_img)
-    name = models.CharField(max_length=500)
-    review = models.TextField()
+# class Our_clients_items(models.Model):
+#     image = models.ImageField(upload_to=user_img)
+#     name = models.CharField(max_length=500)
+#     review = models.TextField()
     
-class ContactUs(models.Model):
-    map_link = models.CharField(max_length=500)
+# class ContactUs(models.Model):
+#     map_link = models.CharField(max_length=500)
     
-class Footer(models.Model):
-    info = models.TextField()
-    info_details = models.TextField()
-    facebook = models.CharField(max_length=500)
-    twitter = models.CharField(max_length=500)
-    i_n = models.CharField(max_length=500)
-    instagram = models.CharField(max_length=500)
-    copyright = models.CharField(max_length=500)
+# class Footer(models.Model):
+#     info = models.TextField()
+#     info_details = models.TextField()
+#     facebook = models.CharField(max_length=500)
+#     twitter = models.CharField(max_length=500)
+#     i_n = models.CharField(max_length=500)
+#     instagram = models.CharField(max_length=500)
+#     copyright = models.CharField(max_length=500)
     
