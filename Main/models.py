@@ -122,16 +122,16 @@ class Service(models.Model):
     
 class Services_Item(models.Model):
     service = models.ForeignKey(Service,default=1,on_delete=models.CASCADE)
-    name = models.CharField(max_length=500)
-    detail = models.TextField()
-    image = models.ImageField(upload_to=si_img)
+    name = models.CharField(max_length=500, verbose_name="Name / Nombre")
+    detail = models.TextField(verbose_name="Details / Detalles")
+    image = models.ImageField(upload_to=si_img, verbose_name="Image / Imagen")
     
     def __str__(self):
         return self.title
     
 class AboutUs(models.Model):
     title = models.CharField(verbose_name="Title / Título", max_length=500)
-    image = models.ImageField(upload_to=about_us)
+    image = models.ImageField(upload_to=about_us,verbose_name="Image / Imagen")
     read_more = models.TextField(verbose_name="Learn More / Saber más")
 
     def get_object():
@@ -153,9 +153,9 @@ class AboutUs(models.Model):
         
 class Track(models.Model):
     title = models.CharField(verbose_name="Title / Título", max_length=500)
-    image = models.ImageField(upload_to=track_img)
-    number_text = models.CharField(max_length=250)
-    btn = models.CharField(max_length=250)
+    image = models.ImageField(upload_to=track_img, verbose_name="Image / Imagen")
+    number_text = models.CharField(max_length=250, verbose_name="Traking Number Text / Texto de Encontrar Carga")
+    btn = models.CharField(max_length=250, verbose_name="Track Button / Boton de Encontrar")
     
     def save(self, *args, **kwargs):
         self.pk = 1
