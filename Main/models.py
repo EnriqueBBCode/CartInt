@@ -100,13 +100,11 @@ class Carrousel(models.Model):
         verbose_name_plural = 'Carrousel / Carrusel'
 
 class Service(models.Model):
-    title = models.CharField(verbose_name="Title/Título", max_length=500)
-    sub_title = models.TextField(verbose_name="Subtitle/Subtítulo")
+    title = models.CharField(verbose_name="Title / Título", max_length=500)
+    sub_title = models.TextField(verbose_name="Subtitle / Subtítulo")
     
     def get_object():
-        # Intenta obtener la única instancia
-        instance, created = Theme.objects.get_or_create(pk=1)
-        return instance
+        return Theme.objects.get(pk=1)
 
     def save(self, *args, **kwargs):
         self.pk = 1
@@ -115,19 +113,61 @@ class Service(models.Model):
     def delete(self, *args, **kwargs):
         pass
     
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Service / Servicio'
+        verbose_name_plural = 'Services / Servicios'
+    
 class Services_Item(models.Model):
+    service = models.ForeignKey(Service,default=1,on_delete=models.CASCADE)
     name = models.CharField(max_length=500)
     detail = models.TextField()
     image = models.ImageField(upload_to=si_img)
     
+    def __str__(self):
+        return self.title
+    
 class AboutUs(models.Model):
-    title = models.CharField(verbose_name="Title/Título", max_length=500)
+    title = models.CharField(verbose_name="Title / Título", max_length=500)
     image = models.ImageField(upload_to=about_us)
+    read_more = models.TextField(verbose_name="Learn More / Saber más")
+
+    def get_object():
+        return Theme.objects.get(pk=1)
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
     
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'About Us / Acerca de Nosotros'
+        verbose_name_plural = 'About Us / Acerca de Nosotros'
+        
 class Track(models.Model):
-    title = models.CharField(verbose_name="Title/Título", max_length=500)
+    title = models.CharField(verbose_name="Title / Título", max_length=500)
     image = models.ImageField(upload_to=track_img)
+    number_text = models.CharField(max_length=250)
+    btn = models.CharField(max_length=250)
     
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
+    
+    class Meta:
+        verbose_name = 'Track Shiping / Encontrar Carga'
+        verbose_name_plural = 'Track Shiping / Encontrar Carga'
+
 class Our_clients(models.Model):
     title = models.CharField(verbose_name="Title/Título", max_length=500)
 

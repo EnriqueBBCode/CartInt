@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'Main',
 ]
 
@@ -117,7 +118,7 @@ JAZZMIN_SETTINGS = {
     "navigation_expanded": True,
     "hide_apps": [],
     "hide_models": [],
-    "order_with_respect_to": ["auth", "books", "Main.Theme", "Main.Header", "Main.Carrousel"],
+    "order_with_respect_to": ["auth", "books", "Main.Theme", "Main.Header", "Main.Carrousel",'Main.Service','Main.AboutUs'],
     "custom_links": {
         "books": [{
             "name": "Make Messages", 
@@ -133,6 +134,9 @@ JAZZMIN_SETTINGS = {
         "Main.Theme": 'fas fa-magic',
         "Main.Header": 'fas fa-edit',
         "Main.Carrousel": 'fas fa-certificate',
+        "Main.Service": 'fas fa-cog',
+        "Main.AboutUs": 'fas fa-book',
+        "Main.Track": 'fas fa-search',
     },
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",

@@ -1,16 +1,6 @@
 from django.contrib import admin
 from .models import *
-from django.forms.widgets import TextInput
-from django import forms
-
-class CarrouselForm(forms.ModelForm):
-    class Meta:
-        model=Theme
-        fields = '__all__'
-        widgets={
-            'main_color':TextInput(attrs={'type':'color'}),
-            'button_colors':TextInput(attrs={'type':'color'})
-        }
+from .forms import CarrouselForm, ServiceForm, ServiceItemForm
 
 # admin.site.register(Theme)
 @admin.register(Theme)
@@ -20,9 +10,27 @@ admin.site.register(Header)
 # admin.site.register(Carrousel)
 @admin.register(Carrousel)
 class CarrouselAdmin(admin.ModelAdmin):
-    # resource_class = BookResource
     fieldsets = (
         ("Carrousel 1",{"fields":("title",'sub_title','image','button_link')}),
         ("Carrousel 2",{"fields":("title_1",'sub_title_1','image_1','button_link_1')}),
         ("Carrousel 3",{"fields":("title_2",'sub_title_2','image_2','button_link_2')}),
     )
+
+class Service_Item_Inline(admin.StackedInline):  # O admin.StackedInline
+    form = ServiceItemForm
+    model = Services_Item
+    extra = 0
+    verbose_name = "Service / Servicio"
+    verbose_name_plural = "Services / Servicios"
+    
+@admin.register(Service)
+class ServiceAdmin(admin.ModelAdmin):
+    form = ServiceForm
+        
+    inlines = [Service_Item_Inline]
+    fieldsets = (
+        ("Info",{"fields":("title",'sub_title')}),
+    )
+    
+admin.site.register(AboutUs)
+admin.site.register(Track)
