@@ -127,7 +127,7 @@ class Services_Item(models.Model):
     image = models.ImageField(upload_to=si_img, verbose_name="Image / Imagen")
     
     def __str__(self):
-        return self.title
+        return self.name
     
 class AboutUs(models.Model):
     title = models.CharField(verbose_name="Title / Título", max_length=500)

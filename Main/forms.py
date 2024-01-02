@@ -13,16 +13,16 @@ class CarrouselForm(forms.ModelForm):
         }
         
 class ServiceForm(forms.ModelForm):
-    title = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Title / Título','maxlength':'500'}))
-    sub_title = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'Subtitle / Subtítulo','maxlength':'500'}))
+    title = forms.CharField(label='Title / Titulo',widget=forms.TextInput(attrs={'placeholder':'Title / Título','maxlength':'500'}))
+    sub_title = forms.CharField(label='Subtitle / Subtítulo',widget=forms.Textarea(attrs={'placeholder':'Subtitle / Subtítulo','maxlength':'500'}))
     
     class Meta:
         model=Service
         fields = ['title','sub_title']
         
 class ServiceItemForm(forms.ModelForm):
-    name = forms.CharField(required=False,widget=forms.TextInput(attrs={'placeholder':'Title / Título','maxlength':'500'}))
-    detail = forms.CharField(required=False,widget=CKEditorWidget())
+    name = forms.CharField(required=False,label='Name / Nombre',widget=forms.TextInput(attrs={'placeholder':'Title / Título','maxlength':'500'}))
+    detail = forms.CharField(required=False,label='Details / Details',widget=CKEditorWidget())
     image = forms.ImageField(required=False,label='Select image / Seleccionar una imagen')
     
     class Meta:
