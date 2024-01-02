@@ -157,6 +157,9 @@ class Track(models.Model):
     number_text = models.CharField(max_length=250, verbose_name="Traking Number Text / Texto de Encontrar Carga")
     btn = models.CharField(max_length=250, verbose_name="Track Button / Boton de Encontrar")
     
+    def __str__(self):
+        return self.title
+    
     def save(self, *args, **kwargs):
         self.pk = 1
         super().save(*args, **kwargs)
