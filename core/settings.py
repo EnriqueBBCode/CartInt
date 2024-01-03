@@ -118,7 +118,7 @@ JAZZMIN_SETTINGS = {
     "navigation_expanded": True,
     "hide_apps": [],
     "hide_models": [],
-    "order_with_respect_to": ["auth", "books", "Main.Theme", "Main.Header", "Main.Carrousel",'Main.Service','Main.AboutUs',"Main.ReviewSection","Main.ContactUS"],
+    "order_with_respect_to": ["auth", "books", "Main.Theme", "Main.Header", "Main.Carrousel",'Main.Service','Main.AboutUs','Main.Track',"Main.ReviewSection","Main.ContactUS"],
     "custom_links": {
         "books": [{
             "name": "Make Messages", 
