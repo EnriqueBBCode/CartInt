@@ -216,8 +216,6 @@ class ContactUs(models.Model):
 # Email / Email
 # Message / Mensaje
 # Send Text / Texto de Enviar
-class Prueba(models.Model):
-    campo = models.BooleanField(default=True)
     
 # class Footer(models.Model):
 #     info = models.TextField()
