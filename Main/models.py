@@ -202,27 +202,78 @@ class Review(models.Model):
         verbose_name_plural = 'Reviews / Opiniones'
         
 class ContactUs(models.Model):
-    map_link = models.CharField(max_length=500)
-    name = models.CharField(max_length=500)
-    email = models.EmailField(verbose_name="Email")
-    message = models.TextField()
-    send_text = models.CharField(max_length=500)
+    map_link = models.CharField(max_length=500,verbose_name="Map Link / Link del Mapa")
+    name = models.CharField(max_length=500,verbose_name="Name / Nombre")
+    email = models.CharField(max_length=500,verbose_name="Email / Email")
+    message = models.CharField(max_length=500,verbose_name="Message / Mensaje")
+    send_text = models.CharField(max_length=500,verbose_name="Send Text / Texto de Enviar")
     
     class Meta:
         verbose_name = 'Contact Us / Contactenos'
-        verbose_name_plural = 'Contact Us / Contactenos'    
-# Your name / Tu nombre
-# Phone Number / Numero Telefonico
-# Email / Email
-# Message / Mensaje
-# Send Text / Texto de Enviar
+        verbose_name_plural = 'Contact Us / Contactenos'
     
-# class Footer(models.Model):
-#     info = models.TextField()
-#     info_details = models.TextField()
-#     facebook = models.CharField(max_length=500)
-#     twitter = models.CharField(max_length=500)
-#     i_n = models.CharField(max_length=500)
-#     instagram = models.CharField(max_length=500)
-#     copyright = models.CharField(max_length=500)
+    def get_object():
+        return Theme.objects.get(pk=1)
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
     
+    def __str__(self):
+        return "Contact Us / Contactenos"
+    
+class Footer(models.Model):
+    address = models.CharField(max_length=500, verbose_name="Address / Dirección")
+    location = models.CharField(max_length=500, verbose_name="Location / Ubicación")
+    phone = models.CharField(max_length=15,verbose_name="Phone / Teléfono")
+    email = models.EmailField(verbose_name="Email / Email")
+    
+    facebook = models.CharField(max_length=500,blank=True,null=True)
+    twitter = models.CharField(max_length=500,blank=True,null=True)
+    linked_in = models.CharField(max_length=500,blank=True,null=True)
+    instagram = models.CharField(max_length=500,blank=True,null=True)
+    
+    title = models.CharField(verbose_name="Title / Título", max_length=500)
+    info = models.TextField(verbose_name="Info / Info")
+
+    class Meta:
+        verbose_name = 'Footer / Pie de Página'
+        verbose_name_plural = 'Footer / Pie de Página'
+    
+    def get_object():
+        return Theme.objects.get(pk=1)
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
+    
+    def __str__(self):
+        return "Footer / Pie de Página"
+    
+class Suscribe(models.Model):
+    email = models.CharField(max_length=500,verbose_name="Email / Email")
+    texto_submit = models.CharField(max_length=500, verbose_name="Text Suscribe / Text de Suscripcion")
+    copyright = models.CharField(max_length=500,verbose_name="Copyright")
+    
+    class Meta:
+        verbose_name = 'Suscribe / Suscripción'
+        verbose_name_plural = 'Suscribe / Suscripción'
+    
+    def get_object():
+        return Theme.objects.get(pk=1)
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
+    
+    def __str__(self):
+        return "Suscribe / Suscripción"

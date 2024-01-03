@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import *
-from .forms import CarrouselForm, ServiceForm, ServiceItemForm, ContactUsForm
+from .forms import *
 
 # admin.site.register(Theme)
 @admin.register(Theme)
@@ -48,6 +48,8 @@ class ReviewSectionAdmin(admin.ModelAdmin):
         ("Title / Título",{"fields":("title",)}),
     )
 
-@admin.register(ContactUs)
-class ContactUsAdmin(admin.ModelAdmin):
-    form = ContactUsForm
+admin.site.register(ContactUs)
+admin.site.register(Footer)
+admin.site.register(Suscribe)
+# class ContactUsAdmin(admin.ModelAdmin):
+#     form = ContactUsForm

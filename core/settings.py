@@ -118,7 +118,7 @@ JAZZMIN_SETTINGS = {
     "navigation_expanded": True,
     "hide_apps": [],
     "hide_models": [],
-    "order_with_respect_to": ["auth", "books", "Main.Theme", "Main.Header", "Main.Carrousel",'Main.Service','Main.AboutUs','Main.Track',"Main.ReviewSection","Main.ContactUS"],
+    "order_with_respect_to": ["auth", "books", "Main.Theme", "Main.Header", "Main.Carrousel",'Main.Service','Main.AboutUs','Main.Track',"Main.ReviewSection","Main.ContactUS","Main.Footer","Main.Suscribe"],
     "custom_links": {
         "books": [{
             "name": "Make Messages", 
@@ -139,6 +139,8 @@ JAZZMIN_SETTINGS = {
         "Main.Track": 'fas fa-search',
         "Main.ReviewSection": 'fas fa-tasks',
         "Main.ContactUS": 'fas fa-phone',
+        "Main.Footer": 'fas fa-bookmark',
+        "Main.Suscribe": 'fas fa-user-plus',
     },
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",

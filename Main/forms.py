@@ -29,13 +29,13 @@ class ServiceItemForm(forms.ModelForm):
         model=Services_Item
         fields = '__all__'
         
-class ContactUsForm(forms.ModelForm):
-    map_link = forms.CharField(label='Map Link / Link del Mapa',widget=forms.TextInput(attrs={'placeholder':'Map Link / Link del Mapa','maxlength':'500'}))
-    name = forms.CharField(label='Name / Nombre',widget=forms.TextInput(attrs={'placeholder':'Name / Nombre','maxlength':'500'}))
-    email = forms.CharField(label='Email / Correo',widget=forms.TextInput(attrs={'placeholder':'Email / Correo','maxlength':'500'}))
-    message = forms.CharField(label='Message / Mensaje',widget=forms.Textarea(attrs={'placeholder':'Message / Mensaje'}))
-    send_text = forms.CharField(label='Send Text / Texto de Enviar',widget=forms.TextInput(attrs={'placeholder':'Send Text / Texto de Enviar','maxlength':'500'}))
+# class ContactUsForm(forms.ModelForm):
+#     map_link = forms.CharField(label='Map Link / Link del Mapa',widget=forms.TextInput(attrs={'placeholder':'Map Link / Link del Mapa','maxlength':'500'}))
+#     name = forms.CharField(label='Name / Nombre',widget=forms.TextInput(attrs={'placeholder':'Name / Nombre','maxlength':'500'}))
+#     email = forms.CharField(label='Email / Correo',widget=forms.TextInput(attrs={'placeholder':'Email / Correo','maxlength':'500'}))
+#     message = forms.CharField(label='Message / Mensaje',widget=forms.Textarea(attrs={'placeholder':'Message / Mensaje'}))
+#     send_text = forms.CharField(label='Send Text / Texto de Enviar',widget=forms.TextInput(attrs={'placeholder':'Send Text / Texto de Enviar','maxlength':'500'}))
     
-    class Meta:
-        model=ContactUs
-        fields = '__all__'
+#     class Meta:
+#         model=ContactUs
+#         fields = '__all__'
