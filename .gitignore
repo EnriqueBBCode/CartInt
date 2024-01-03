@@ -5,4 +5,5 @@ log
 core/__pycache__/
 Main/__pycache__/
 Main/migrations/__pycache__/
+Main/migrations/
 media/
