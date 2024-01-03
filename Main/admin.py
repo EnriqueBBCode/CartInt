@@ -35,19 +35,19 @@ class ServiceAdmin(admin.ModelAdmin):
 admin.site.register(AboutUs)
 admin.site.register(Track)
 
-class RevireInlines(admin.StackedInline):  # O admin.StackedInline
-    model = Review
-    extra = 0
-    verbose_name = "Review / Opinion"
-    verbose_name_plural = "Reviews / Opiniones"
+# class RevireInlines(admin.StackedInline):  # O admin.StackedInline
+#     model = Review
+#     extra = 0
+#     verbose_name = "Review / Opinion"
+#     verbose_name_plural = "Reviews / Opiniones"
 
-@admin.register(ReviewSection)
-class ReviewSectionAdmin(admin.ModelAdmin):
-    inlines = [RevireInlines]
-    fieldsets = (
-        ("Title / Título",{"fields":("title",)}),
-    )
+# @admin.register(ReviewSection)
+# class ReviewSectionAdmin(admin.ModelAdmin):
+#     inlines = [RevireInlines]
+#     fieldsets = (
+#         ("Title / Título",{"fields":("title",)}),
+#     )
 
-@admin.register(ContactUs)
-class ContactUsAdmin(admin.ModelAdmin):
-    form = ContactUsForm
+# @admin.register(ContactUs)
+# class ContactUsAdmin(admin.ModelAdmin):
+#     form = ContactUsForm

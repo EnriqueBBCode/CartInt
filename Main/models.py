@@ -171,46 +171,46 @@ class Track(models.Model):
         verbose_name = 'Track Shiping / Encontrar Carga'
         verbose_name_plural = 'Track Shiping / Encontrar Carga'
 
-class ReviewSection(models.Model):
-    title = models.CharField(verbose_name="Title / Título", max_length=500)
+# class ReviewSection(models.Model):
+#     title = models.CharField(verbose_name="Title / Título", max_length=500)
     
-    def save(self, *args, **kwargs):
-        self.pk = 1
-        super().save(*args, **kwargs)
+#     def save(self, *args, **kwargs):
+#         self.pk = 1
+#         super().save(*args, **kwargs)
 
-    def delete(self, *args, **kwargs):
-        pass
+#     def delete(self, *args, **kwargs):
+#         pass
     
-    def __str__(self):
-        return "Reviews / Opiniones"
+#     def __str__(self):
+#         return "Reviews / Opiniones"
     
-    class Meta:
-        verbose_name = 'Reviews / Opiniones'
-        verbose_name_plural = 'Reviews / Opiniones'
+#     class Meta:
+#         verbose_name = 'Reviews / Opiniones'
+#         verbose_name_plural = 'Reviews / Opiniones'
     
-class Review(models.Model):
-    section = models.ForeignKey(ReviewSection, on_delete=models.CASCADE,default=1)
-    image = models.ImageField(upload_to=user_img,verbose_name="Image / Imagen")
-    name = models.CharField(max_length=500,verbose_name="Name / Nombre")
-    review = models.TextField(verbose_name="Review / Opinion")
+# class Review(models.Model):
+#     section = models.ForeignKey(ReviewSection, on_delete=models.CASCADE,default=1)
+#     image = models.ImageField(upload_to=user_img,verbose_name="Image / Imagen")
+#     name = models.CharField(max_length=500,verbose_name="Name / Nombre")
+#     review = models.TextField(verbose_name="Review / Opinion")
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
     
-    class Meta:
-        verbose_name = 'Review / Opinion'
-        verbose_name_plural = 'Reviews / Opiniones'
+#     class Meta:
+#         verbose_name = 'Review / Opinion'
+#         verbose_name_plural = 'Reviews / Opiniones'
         
-class ContactUs(models.Model):
-    map_link = models.CharField(max_length=500)
-    name = models.CharField(max_length=500)
-    email = models.EmailField(verbose_name="Email")
-    message = models.TextField()
-    send_text = models.CharField(max_length=500)
+# class ContactUs(models.Model):
+#     map_link = models.CharField(max_length=500)
+#     name = models.CharField(max_length=500)
+#     email = models.EmailField(verbose_name="Email")
+#     message = models.TextField()
+#     send_text = models.CharField(max_length=500)
     
-    class Meta:
-        verbose_name = 'Contact Us / Contactenos'
-        verbose_name_plural = 'Contact Us / Contactenos'    
+#     class Meta:
+#         verbose_name = 'Contact Us / Contactenos'
+#         verbose_name_plural = 'Contact Us / Contactenos'    
 # Your name / Tu nombre
 # Phone Number / Numero Telefonico
 # Email / Email
