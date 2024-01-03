@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import *
-from .forms import CarrouselForm, ServiceForm, ServiceItemForm, ContactUsForm
+from .forms import CarrouselForm, ServiceForm, ServiceItemForm#, ContactUsForm
 
 # admin.site.register(Theme)
 @admin.register(Theme)
