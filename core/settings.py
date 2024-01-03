@@ -137,6 +137,8 @@ JAZZMIN_SETTINGS = {
         "Main.Service": 'fas fa-cog',
         "Main.AboutUs": 'fas fa-book',
         "Main.Track": 'fas fa-search',
+        "Main.ReviewSection": 'fas fa-tasks',
+        "Main.ContactUS": 'fas fa-phone',
     },
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",
