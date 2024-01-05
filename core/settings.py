@@ -90,7 +90,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIAFILES_DIRS = (os.path.join(BASE_DIR, 'media'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+APPEND_SLASH=False
 JAZZMIN_SETTINGS = {
     "site_title": "Library Admin",
     "site_header": "Library",
