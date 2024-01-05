@@ -37,7 +37,25 @@
 </head>
 
 <body>
-
+  <style>
+    .heading_container h2 span,.header_section .header_top .contact_nav a i,.custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link,.service_section .box .detail-box a:hover,
+    .info_section .info_contact .contact_link_box a:hover,.info_section .info_social a:hover,.info_section .info_links a:hover  {
+      color: {{theme.button_colors}};
+    }
+    .slider_section .detail-box .btn-box .btn1,.slider_section .carousel-indicators li.active,.about_section .detail-box a,.track_section form button,.client_section .owl-carousel .owl-nav .owl-prev,
+    .client_section .owl-carousel .owl-nav .owl-next,.contact_section .form_container button,  {
+      background-color: {{theme.button_colors}};
+      background: {{theme.button_colors}};
+    }
+    .header_section .header_top .contact_nav a:hover i ,.slider_section .detail-box ,.service_section .box .detail-box a ,.contact_section .form_container input::-webkit-input-placeholder,
+    .contact_section .form_container input:-ms-input-placeholder,.contact_section .form_container input::-ms-input-placeholder,.contact_section .form_container input::placeholder,.footer_section p{
+      color: {{theme.main_color}}
+    }
+    .header_section .header_top,.about_section .img-box::before,.about_section .img-box::after,.info_section,.slider_section .detail-box .btn-box .btn1:hover  {
+      background-color: {{theme.main_color}}
+    }
+  </style>
+  <div id="cover" class="hidden"><img src="{% static "images/loading.gif" %}"></div>
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
@@ -46,18 +64,15 @@
           <div class="contact_nav">
             <a href="">
               <i class="fa fa-phone" aria-hidden="true"></i>
-              <span id='call' class="translate">Call</span>: {{header.phone}}
-               
+              <span><span id='call' class="translate">Call</span>: {{header.phone}}</span>
             </a>
             <a href="">
               <i class="fa fa-envelope" aria-hidden="true"></i>
-              <span id='topheaderemail' class="translate">Email</span>: {{header.email}}
+              <span><span id='topheaderemail' class="translate">Email</span>: {{header.email}}</span>
             </a>
             <a href="">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
-              <span>
-                {{header.location}}
-              </span>
+              <span><span>{{header.location}}</span></span>
             </a>
           </div>
         </div>
@@ -93,11 +108,6 @@
                   <a class="nav-link lang-change" lang="es"><img style="height:20px;transform:scale(2)" src="{% static "images/es.png" %}"></a>
                   <a class="nav-link lang-change" lang="en"><img style="height:20px;transform:scale(2)" src="{% static "images/en.png" %}"></a>
                 </li>
-                <form class="form-inline">
-                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </button>
-                </form>
               </ul>
             </div>
           </nav>
@@ -107,79 +117,48 @@
     <!-- end header section -->
     <!-- slider section -->
     <section class="slider_section ">
-      <div class="slider_bg_box">
-        <img src="images/slider-bg.jpg" alt="">
-      </div>
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 ">
-                  <div class="detail-box">
-                    <h1>
-                      We Provide best <br>
-                      Transport Service
-                    </h1>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum magnam, voluptates distinctio, officia architecto tenetur debitis hic aspernatur libero commodi atque fugit adipisci, blanditiis quidem dolorum odit voluptas? Voluptate, eveniet?
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Get A Quote
-                      </a>
-                    </div>
-                  </div>
-                </div>
+
+          <div style="background-image:url({{carrousel.image.url}})" class="carousel-item active">
+            <span class="overlay"></span>
+            <div class="detail-box position-relative">
+              <h1 style="max_width:600px">{{carrousel.title}}</h1>
+              <p>{{carrousel.sub_title}}</p>
+              <div class="btn-box">
+                <a href="{{carrousel.button_link}}" style="background-color:{{theme.button_colors}}" class="btn1">
+                  Read More
+                </a>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 ">
-                  <div class="detail-box">
-                    <h1>
-                      We Provide best <br>
-                      Transport Service
-                    </h1>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum magnam, voluptates distinctio, officia architecto tenetur debitis hic aspernatur libero commodi atque fugit adipisci, blanditiis quidem dolorum odit voluptas? Voluptate, eveniet?
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Get A Quote
-                      </a>
-                    </div>
-                  </div>
-                </div>
+          <div style="background-image:url({{carrousel.image_1.url}})" class="carousel-item">
+            <span class="overlay"></span>
+            <div class="detail-box position-relative">
+              <h1 style="max_width:600px">{{carrousel.title_1}}</h1>
+              <p>{{carrousel.sub_title_1}}</p>
+              <div class="btn-box">
+                <a href="{{carrousel.button_link_1}}" style="background-color:{{theme.button_colors}}" class="btn1">
+                  Read More
+                </a>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 ">
-                  <div class="detail-box">
-                    <h1>
-                      We Provide best <br>
-                      Transport Service
-                    </h1>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum magnam, voluptates distinctio, officia architecto tenetur debitis hic aspernatur libero commodi atque fugit adipisci, blanditiis quidem dolorum odit voluptas? Voluptate, eveniet?
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Get A Quote
-                      </a>
-                    </div>
-                  </div>
-                </div>
+          <div style="background-image:url({{carrousel.image_2.url}})" class="carousel-item">
+            <span class="overlay"></span>
+            <div class="detail-box position-relative">
+              <h1 style="max_width:600px">{{carrousel.title_2}}</h1>
+              <p>{{carrousel.sub_title_2}}</p>
+              <div class="btn-box">
+                <a href="{{carrousel.button_link_2}}" style="background-color:{{theme.button_colors}}" class="btn1">
+                  Read More
+                </a>
               </div>
             </div>
           </div>
+
         </div>
-        <ol class="carousel-indicators">
+        <ol style="position:absolute" class="carousel-indicators">
           <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
           <li data-target="#customCarousel1" data-slide-to="1"></li>
           <li data-target="#customCarousel1" data-slide-to="2"></li>
@@ -200,32 +179,26 @@
           <h2>
             Our <span>Services</span>
           </h2>
-          <p>
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-          </p>
+          <p>{{service.sub_title}}</p>
         </div>
         <div class="row">
+          {% for s in service.items.all %}
           <div class="col-md-6 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/s1.png" alt="">
+                <img src="{{s.image.url}}" alt="">
               </div>
               <div class="detail-box">
-                <h5>
-                  Air Transport
-                </h5>
-                <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
-                </p>
-                <a href="">
+                <h5>{{s.name}}</h5>
+                <p>{{s.datails}}</p>
+                {% comment %} <a href="">
                   Read More
-                </a>
+                </a> {% endcomment %}
               </div>
             </div>
           </div>
-          <div class="col-md-6 ">
+          {% endfor %}
+          {% comment %} <div class="col-md-6 ">
             <div class="box ">
               <div class="img-box">
                 <img src="images/s2.png" alt="">
@@ -284,7 +257,7 @@
                 </a>
               </div>
             </div>
-          </div>
+          </div> {% endcomment %}
         </div>
       </div>
     </div>
@@ -305,20 +278,16 @@
                 About <span>Us</span>
               </h2>
             </div>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
-            </p>
-            <a href="">
-              Read More
+            <h4>{{about.title}}</h4>
+            <p>{{about.detail}}</p>
+            <a style="background-color:{{theme.button_colors}}" href="">
+              {{about.read_more}}
             </a>
           </div>
         </div>
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="images/about-img.jpg" alt="">
+            <img style="width:100%" src="{{about.image.url}}" alt="">
           </div>
         </div>
 

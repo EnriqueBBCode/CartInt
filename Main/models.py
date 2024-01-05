@@ -121,7 +121,7 @@ class Service(models.Model):
         verbose_name_plural = 'Services / Servicios'
     
 class Services_Item(models.Model):
-    service = models.ForeignKey(Service,default=1,on_delete=models.CASCADE)
+    service = models.ForeignKey(Service,default=1,on_delete=models.CASCADE,related_name="items")
     name = models.CharField(max_length=500, verbose_name="Name / Nombre")
     detail = models.TextField(verbose_name="Details / Detalles")
     image = models.ImageField(upload_to=si_img, verbose_name="Image / Imagen")
@@ -129,10 +129,14 @@ class Services_Item(models.Model):
     def __str__(self):
         return self.name
     
+    def datails(self):
+        return mark_safe(self.detail)
+    
 class AboutUs(models.Model):
     title = models.CharField(verbose_name="Title / Título", max_length=500)
     image = models.ImageField(upload_to=about_us,verbose_name="Image / Imagen")
-    read_more = models.TextField(verbose_name="Learn More / Saber más")
+    read_more = models.CharField(max_length=50,verbose_name="Learn More / Saber más")
+    detail = models.TextField(verbose_name="Datails / Detalles")
 
     def get_object():
         return Theme.objects.get(pk=1)
