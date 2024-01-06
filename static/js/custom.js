@@ -7,8 +7,9 @@ function getYear() {
 
 getYear();
 
-$("#readmoreabout").click(function() {
-    $("#aboutp").toggleClass('parrafo-small')
+$(".btnreadmore").click(function() {
+    var p = $(this).attr('text');
+    $("#" + p).toggleClass('parrafo-small')
 });
 //  owl carousel script
 $(".owl-carousel").owlCarousel({

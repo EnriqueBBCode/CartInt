@@ -190,9 +190,9 @@
               <div class="detail-box">
                 <h5 class="translate" id="boxservice-name-{{forloop.counter}}">{{s.name}}</h5>
                 <p class="translate" id="boxservice-details-{{forloop.counter}}">{{s.datails}}</p>
-                {% comment %} <a href="">
+                <a style="background-color:{{theme.button_colors}};padding:5px 20px" class="translate btnreadmore" text="boxservice-details-{{forloop.counter}}" id="readmore-s-{{s.pk}}">
                   Read More
-                </a> {% endcomment %}
+                </a>
               </div>
             </div>
           </div>
@@ -279,7 +279,7 @@
             </div>
             <h4 class="translate" id="h4about">{{about.title}}</h4>
             <p class="translate parrafo-small" id="aboutp">{{about.detail}}</p>
-            <a class="translate pointer" id="readmoreabout" style="background-color:{{theme.button_colors}}">{{about.read_more}}</a>
+            <a class="translate btnreadmore" text="aboutp" id="readmoreabout" style="background-color:{{theme.button_colors}}">{{about.read_more}}</a>
           </div>
         </div>
         <div class="col-md-6 ">
