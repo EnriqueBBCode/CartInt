@@ -12,7 +12,12 @@ def translate(request,lang):
     data = {}
     for c,v in request.POST.items():
         print(f"{c} - {v}")
-        data[c] = t.translate(v,dest=lang).text
+        try:
+            data[c] = t.translate(v,dest=lang).text
+        except:
+            data[c] = v
+            print(v)
+            print(type(v))
     return HttpResponse(json.dumps(data),content_type='aplication/json')
 
 class HomeView(View):

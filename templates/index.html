@@ -123,8 +123,8 @@
           <div style="background-image:url({{carrousel.image.url}})" class="carousel-item active">
             <span class="overlay"></span>
             <div class="detail-box position-relative">
-              <h1 style="max_width:600px">{{carrousel.title}}</h1>
-              <p>{{carrousel.sub_title}}</p>
+              <h1 style="max_width:600px" class="translate" id="h11">{{carrousel.title}}</h1>
+              <p class="translate" id="p1">{{carrousel.sub_title}}</p>
               <div class="btn-box">
                 <a href="{{carrousel.button_link}}" style="background-color:{{theme.button_colors}}" class="btn1">
                   Read More
@@ -135,8 +135,8 @@
           <div style="background-image:url({{carrousel.image_1.url}})" class="carousel-item">
             <span class="overlay"></span>
             <div class="detail-box position-relative">
-              <h1 style="max_width:600px">{{carrousel.title_1}}</h1>
-              <p>{{carrousel.sub_title_1}}</p>
+              <h1 style="max_width:600px" class="translate" id="h22">{{carrousel.title_1}}</h1>
+              <p class="translate" id="p2">{{carrousel.sub_title_1}}</p>
               <div class="btn-box">
                 <a href="{{carrousel.button_link_1}}" style="background-color:{{theme.button_colors}}" class="btn1">
                   Read More
@@ -147,8 +147,8 @@
           <div style="background-image:url({{carrousel.image_2.url}})" class="carousel-item">
             <span class="overlay"></span>
             <div class="detail-box position-relative">
-              <h1 style="max_width:600px">{{carrousel.title_2}}</h1>
-              <p>{{carrousel.sub_title_2}}</p>
+              <h1 style="max_width:600px" class="translate" id="h33">{{carrousel.title_2}}</h1>
+              <p class="translate" id="p3">{{carrousel.sub_title_2}}</p>
               <div class="btn-box">
                 <a href="{{carrousel.button_link_2}}" style="background-color:{{theme.button_colors}}" class="btn1">
                   Read More
@@ -176,10 +176,9 @@
     <div class="service_container">
       <div class="container ">
         <div class="heading_container">
-          <h2>
-            Our <span>Services</span>
-          </h2>
-          <p>{{service.sub_title}}</p>
+          <h2 class="translate" id="h2services">Our Services</h2>
+          
+          <p class="translate" id="servicessubtitle">{{service.sub_title}}</p>
         </div>
         <div class="row">
           {% for s in service.items.all %}
@@ -189,8 +188,8 @@
                 <img src="{{s.image.url}}" alt="">
               </div>
               <div class="detail-box">
-                <h5>{{s.name}}</h5>
-                <p>{{s.datails}}</p>
+                <h5 class="translate" id="boxservice-name-{{forloop.counter}}">{{s.name}}</h5>
+                <p class="translate" id="boxservice-details-{{forloop.counter}}">{{s.datails}}</p>
                 {% comment %} <a href="">
                   Read More
                 </a> {% endcomment %}
@@ -278,11 +277,9 @@
                 About <span>Us</span>
               </h2>
             </div>
-            <h4>{{about.title}}</h4>
-            <p>{{about.detail}}</p>
-            <a style="background-color:{{theme.button_colors}}" href="">
-              {{about.read_more}}
-            </a>
+            <h4 class="translate" id="h4about">{{about.title}}</h4>
+            <p class="translate parrafo-small" id="aboutp">{{about.detail}}</p>
+            <a class="translate pointer" id="readmoreabout" style="background-color:{{theme.button_colors}}">{{about.read_more}}</a>
           </div>
         </div>
         <div class="col-md-6 ">
