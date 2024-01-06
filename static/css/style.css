@@ -411,6 +411,7 @@ a:focus {
 
 .parrafo-small {
     overflow: hidden;
+    height: 50px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
