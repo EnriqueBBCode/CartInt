@@ -4,6 +4,9 @@ $('.lang-change').click(function() {
     var lang = $(this).attr('lang');
     $('.translate').each(function() {
         items[$(this).attr('id')] = $(this).text()
+        if ($(this).hasClass('placeholder-translate')) {
+            items[$(this).attr('id')] = $(this).attr('placeholder')
+        }
     });
     $.ajax({
         url: `trans/${lang}/`,
@@ -12,7 +15,9 @@ $('.lang-change').click(function() {
         success: function(json) {
             $('#cover').addClass('hidden')
             $.each(json, function(k, v) {
-                $(`#${k}`).text(v);
+                if ($(`#${k}`).hasClass('placeholder-translate')) {
+                    $(`#${k}`).attr('placeholder', v);
+                } else { $(`#${k}`).text(v); }
             });
         },
         error: function() {

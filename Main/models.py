@@ -157,8 +157,9 @@ class AboutUs(models.Model):
         
 class Track(models.Model):
     title = models.CharField(verbose_name="Title / Título", max_length=500)
+    detail = models.TextField(verbose_name="Datails / Detalles")
     image = models.ImageField(upload_to=track_img, verbose_name="Image / Imagen")
-    number_text = models.CharField(max_length=250, verbose_name="Traking Number Text / Texto de Encontrar Carga")
+    number_text = models.CharField(max_length=50, verbose_name="Traking Number Text / Texto de Encontrar Carga")
     btn = models.CharField(max_length=250, verbose_name="Track Button / Boton de Encontrar")
     
     def __str__(self):
@@ -193,7 +194,7 @@ class ReviewSection(models.Model):
         verbose_name_plural = 'Reviews / Opiniones'
     
 class Review(models.Model):
-    section = models.ForeignKey(ReviewSection, on_delete=models.CASCADE,default=1)
+    section = models.ForeignKey(ReviewSection, on_delete=models.CASCADE,default=1,related_name="reviews")
     image = models.ImageField(upload_to=user_img,verbose_name="Image / Imagen")
     name = models.CharField(max_length=500,verbose_name="Name / Nombre")
     review = models.TextField(verbose_name="Review / Opinion")

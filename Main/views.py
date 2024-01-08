@@ -27,11 +27,21 @@ class HomeView(View):
         carrousel = Carrousel.objects.get(pk=1)
         service = Service.objects.get(pk=1)
         about = AboutUs.objects.get(pk=1)
+        track = Track.objects.get(pk=1)
+        review = ReviewSection.objects.get(pk=1)
+        contact = ContactUs.objects.get(pk=1)
+        suscribe = Suscribe.objects.get(pk=1)
+        footer = Footer.objects.get(pk=1)
         context = {
             'header':header,
             'theme':theme,
             'carrousel':carrousel,
             'service':service,
             'about':about,
+            'track':track,
+            'review':review,
+            'contact':contact,
+            'suscribe':suscribe,
+            'footer':footer,
         }
         return render(request,'index.html',context)
