@@ -25,6 +25,8 @@
 
   <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- Agrega el enlace a la hoja de estilos de Owl Carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
   <!-- font awesome style -->
   <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet" />
@@ -59,7 +61,7 @@
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
-      <div class="header_top">
+      <div style='padding: 20px' class="header_top">
         <div class="container-fluid ">
           <div class="contact_nav">
             <a href="">
@@ -126,7 +128,7 @@
               <h1 style="max_width:600px" class="translate" id="h11">{{carrousel.title}}</h1>
               <p class="translate" id="p1">{{carrousel.sub_title}}</p>
               <div class="btn-box">
-                <a href="{{carrousel.button_link}}" style="background-color:{{theme.button_colors}}" id="car-btn1" class="btn1 translate">
+                <a href="{{carrousel.button_link}}" style="background-color:{{theme.button_colors}}" id="car-btn1" class="btn1 btn translate">
                   Read More
                 </a>
               </div>
@@ -138,7 +140,7 @@
               <h1 style="max_width:600px" class="translate" id="h22">{{carrousel.title_1}}</h1>
               <p class="translate" id="p2">{{carrousel.sub_title_1}}</p>
               <div class="btn-box">
-                <a href="{{carrousel.button_link_1}}" style="background-color:{{theme.button_colors}}" id="car-btn2" class="btn1 translate">
+                <a href="{{carrousel.button_link_1}}" style="background-color:{{theme.button_colors}}" id="car-btn2" class="btn1 btn translate">
                   Read More
                 </a>
               </div>
@@ -150,7 +152,7 @@
               <h1 style="max_width:600px" class="translate" id="h33">{{carrousel.title_2}}</h1>
               <p class="translate" id="p3">{{carrousel.sub_title_2}}</p>
               <div class="btn-box">
-                <a href="{{carrousel.button_link_2}}" style="background-color:{{theme.button_colors}}" id="car-btn3" class="btn1 translate">
+                <a href="{{carrousel.button_link_2}}" style="background-color:{{theme.button_colors}}" id="car-btn3" class="btn1 btn translate">
                   Read More
                 </a>
               </div>
@@ -306,7 +308,7 @@
           <div class="heading_container">
             <h2 id="trackh1" class="translate">{{track.title}}</h2>
           </div>
-          <p class="translate" id="track-p">{{track.detail}}</p>
+          <p class="translate" id="track-p">{{track.detail|linebreaksbr}}</p>
           <form action="">
             <input class="translate placeholder-translate" id="placeholder" type="text" placeholder="{{track.number_text}}" />
             <button class="translate" id="trackbtn" style="background:{{theme.button_colors}}" type="submit">{{track.btn}}</button>
@@ -319,11 +321,11 @@
   <!-- end track section -->
 
   <!-- client section -->
-
+{% if review.reviews.count > 0 %}
   <section class="client_section layout_padding">
     <div class="container">
       <div class="heading_container">
-        <h2 class="translate" id='wsoc'>
+        <h2 style="padding:20px" class="translate" id='wsoc'>
           What Says Our <span>Client</span>
         </h2>
       </div>
@@ -426,7 +428,7 @@
       </div>
     </div>
   </section>
-
+{% endif %}
   <!-- end client section -->
 
   <!-- contact section -->
@@ -446,26 +448,26 @@
           <div class="form_container contact-form">
             <form action="">
               <div>
-                <input type="text" placeholder="Your Name" />
+                <input class="translate placeholder-translate" id="ph-yn" type="text" placeholder="{{contact.name}}" />
+              </div>
+              {% comment %} <div>
+                <input class="translate placeholder-translate" id="ph-pn" type="text" placeholder="{{contact.}}" />
+              </div> {% endcomment %}
+              <div>
+                <input class="translate placeholder-translate" id="ph-e" type="email" placeholder="{{contact.email}}" />
               </div>
               <div>
-                <input type="text" placeholder="Phone Number" />
-              </div>
-              <div>
-                <input type="email" placeholder="Email" />
-              </div>
-              <div>
-                <input type="text" class="message-box" placeholder="Message" />
+                <input class="translate placeholder-translate message-box" id="ps-mb" type="text" placeholder="{{contact.message}}" />
               </div>
               <div class="btn_box">
-                <button>
-                  SEND
+                <button style="background:{{theme.button_colors}}">
+                  {{contact.send_text}}
                 </button>
               </div>
             </form>
           </div>
         </div>
-        <div class="col-lg-7 col-md-6 px-0">
+        <div class="col-md-6 px-0">
           <div class="map_container">
             <div class="map">
               <div id="googleMap"></div>
@@ -603,7 +605,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
-
 </body>
 
 </html>

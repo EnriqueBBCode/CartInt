@@ -13,10 +13,12 @@ $(".btnreadmore").click(function() {
 });
 //  owl carousel script
 $(".owl-carousel").owlCarousel({
-    loop: true,
+    loop: false,
     margin: 20,
     nav: true,
-    navText: [],
+    // navText: ['&#10094;', '&#10095;'],
+    // navText: ['\u2190', '\u2192'],
+    navText: ['<i class="fa fa-arrow-left"></i>', '<i class="fa fa-arrow-right"></i>'],
     autoplay: true,
     autoplayHoverPause: true,
     responsive: {
