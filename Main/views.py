@@ -41,7 +41,7 @@ class HomeView(View):
             'track':track,
             'review':review,
             'contact':contact,
-            'suscribe':suscribe,
+            'subscribe':suscribe,
             'footer':footer,
         }
         return render(request,'index.html',context)

@@ -322,6 +322,7 @@
 
   <!-- client section -->
 {% if review.reviews.count > 0 %}
+
   <section class="client_section layout_padding">
     <div class="container">
       <div class="heading_container">
@@ -471,9 +472,9 @@
               <div>
                 <input class="translate placeholder-translate" id="ph-yn" type="text" placeholder="{{contact.name}}" />
               </div>
-              {% comment %} <div>
-                <input class="translate placeholder-translate" id="ph-pn" type="text" placeholder="{{contact.}}" />
-              </div> {% endcomment %}
+              <div>
+                <input class="translate placeholder-translate" id="ph-pn" type="text" placeholder="{{contact.phone}}" />
+              </div>
               <div>
                 <input class="translate placeholder-translate" id="ph-e" type="email" placeholder="{{contact.email}}" />
               </div>
@@ -491,7 +492,7 @@
         <div class="col-md-6 px-0">
           <div class="map_container">
             <div class="map">
-              <div id="googleMap"></div>
+              <iframe width="100%" height="400px" style="border:none" src="{{contact.map_link}}"></iframe>
             </div>
           </div>
         </div>
@@ -507,58 +508,58 @@
       <div class="row">
         <div class="col-md-6 col-lg-3 info_col">
           <div class="info_contact">
-            <h4>
+            <h4 class='translate' id='footer-address'>
               Address
             </h4>
             <div class="contact_link_box">
-              <a href="">
+              <a>
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
-                  Location
+                <span class="translate" id='foo-loc'>
+                  {{footer.location}}
                 </span>
               </a>
-              <a href="">
+              <a href="tel:{{footer.phone}}">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  {{footer.phone}}
                 </span>
               </a>
-              <a href="">
+              <a href="mailto:{{footer.email}}">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  {{footer.email}}
                 </span>
               </a>
             </div>
           </div>
           <div class="info_social">
-            <a href="">
+            <a href="{{footer.facebook}}">
               <i class="fa fa-facebook" aria-hidden="true"></i>
             </a>
-            <a href="">
+            <a href="{{footer.twitter}}">
               <i class="fa fa-twitter" aria-hidden="true"></i>
             </a>
-            <a href="">
+            <a href="{{footer.linked_in}}">
               <i class="fa fa-linkedin" aria-hidden="true"></i>
             </a>
-            <a href="">
+            <a href="{{footer.instagram}}">
               <i class="fa fa-instagram" aria-hidden="true"></i>
             </a>
           </div>
         </div>
         <div class="col-md-6 col-lg-3 info_col">
           <div class="info_detail">
-            <h4>
-              Info
+            <h4 class="translate" id='foo-tt'>
+              {{footer.title}}
             </h4>
-            <p>
-              necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful
+            <p class="translate" id='foo-info'>
+            {{footer.info}}  
             </p>
           </div>
         </div>
         <div class="col-md-6 col-lg-2 mx-auto info_col">
           <div class="info_link_box">
-            <h4>
+            <h4 class="translate" id='foo-links'>
               Links
             </h4>
             <div class="info_links">
@@ -582,13 +583,13 @@
           </div>
         </div>
         <div class="col-md-6 col-lg-3 info_col ">
-          <h4>
+          <h4 class="translate" id='foo-Subscribe'>
             Subscribe
           </h4>
           <form action="#">
-            <input type="text" placeholder="Enter email" />
-            <button type="submit">
-              Subscribe
+            <input type="text" class="translate placeholder-translate" id='foo-sus-ph' placeholder="{{subscribe.email}}" />
+            <button style='background:{{theme.button_colors}}' type="submit">
+              {{subscribe.texto_submit}}
             </button>
           </form>
         </div>
@@ -602,8 +603,9 @@
   <section class="footer_section">
     <div class="container">
       <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
+        {{subscribe.copyright}}
+        {% comment %} &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a> {% endcomment %}
       </p>
     </div>
   </section>

@@ -210,6 +210,7 @@ class ContactUs(models.Model):
     map_link = models.CharField(max_length=500,verbose_name="Map Link / Link del Mapa")
     name = models.CharField(max_length=500,verbose_name="Name / Nombre")
     email = models.CharField(max_length=500,verbose_name="Email / Email")
+    phone = models.CharField(max_length=12,verbose_name="Phone Number / Número de Teléfono")
     message = models.CharField(max_length=500,verbose_name="Message / Mensaje")
     send_text = models.CharField(max_length=500,verbose_name="Send Text / Texto de Enviar")
     
@@ -267,8 +268,8 @@ class Suscribe(models.Model):
     copyright = models.CharField(max_length=500,verbose_name="Copyright")
     
     class Meta:
-        verbose_name = 'Suscribe / Suscripción'
-        verbose_name_plural = 'Suscribe / Suscripción'
+        verbose_name = 'Subscribe / Subscripción'
+        verbose_name_plural = 'Subscribe / Subscripción'
     
     def get_object():
         return Theme.objects.get(pk=1)
