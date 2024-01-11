@@ -16,9 +16,9 @@ $(".owl-carousel").owlCarousel({
     loop: false,
     margin: 20,
     nav: true,
-    // navText: ['&#10094;', '&#10095;'],
+    // navText: ['&#10094;', '&#10095;'],'<i class="fa fa-arrow-left"></i>', '<i class="fa fa-arrow-right"></i>'
     // navText: ['\u2190', '\u2192'],
-    navText: ['<i class="fa fa-arrow-left"></i>', '<i class="fa fa-arrow-right"></i>'],
+    navText: [],
     autoplay: true,
     autoplayHoverPause: true,
     responsive: {
@@ -26,7 +26,7 @@ $(".owl-carousel").owlCarousel({
             items: 1
         },
         1000: {
-            items: 3
+            items: 2
         }
     }
 });

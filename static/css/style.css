@@ -733,36 +733,30 @@ a:focus {
 
 .client_section .owl-carousel .owl-nav .owl-prev,
 .client_section .owl-carousel .owl-nav .owl-next {
-    background-color: #4c4c4c71;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     background-size: 18px;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 90px;
-    /* position: absolute;
+    position: absolute;
+    right: -15%;
     outline: none;
-    bottom: 0;
-    display: flex; */
+    background-color: #0a97b0;
 }
 
 .client_section .owl-carousel .owl-nav .owl-prev:hover,
 .client_section .owl-carousel .owl-nav .owl-next:hover {
-    background-color: #000000b7;
-}
-
-.btn:hover {
-    box-shadow: 2px 2px 5px #222;
+    background-color: #161825;
 }
 
 .client_section .owl-carousel .owl-nav .owl-prev {
-    /* top: 25%; */
-    /* background-image: url(../images/prev.png); */
+    top: 25%;
+    background-image: url(../images/prev.png);
 }
 
 .client_section .owl-carousel .owl-nav .owl-next {
     top: calc(25% + 65px);
-    /* background-image: url(../images/next.png); */
+    background-image: url(../images/next.png);
 }
 
 .contact_section {
