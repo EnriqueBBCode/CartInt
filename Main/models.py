@@ -17,8 +17,8 @@ def user_img(instance,filename):
     return f"user_img/{filename}"
 
 class Theme(models.Model):
-    main_color = models.CharField(max_length=30,verbose_name="Main Color / Color Principal")
-    button_colors = models.CharField(max_length=30,verbose_name="Button Colors / Colores de los Botones")
+    main_color = models.CharField(max_length=210,verbose_name="Main Color / Color Principal")
+    button_colors = models.CharField(max_length=210,verbose_name="Button Colors / Colores de los Botones")
     
     def __str__(self):
         return mark_safe(f"<b style='text-transform:uppercase;font-weight:700;color:{self.main_color}'>Main Color / Color Principal</b> | <b style='text-transform:uppercase;font-weight:700;color:{self.button_colors}'>Main Color / Color Principal</b>")
