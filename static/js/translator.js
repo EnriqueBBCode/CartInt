@@ -1,7 +1,8 @@
+var lang = 'en'
 $('.lang-change').click(function() {
     $('#cover').removeClass('hidden');
     var items = {}
-    var lang = $(this).attr('lang');
+    lang = $(this).attr('lang');
     $('.translate').each(function() {
         items[$(this).attr('id')] = $(this).text()
         if ($(this).hasClass('placeholder-translate')) {
@@ -23,6 +24,21 @@ $('.lang-change').click(function() {
         error: function() {
             $('#cover').addClass('hidden');
             alert("No se puso traducir .Revise su conexión");
+        }
+    })
+});
+$('#subscribe-form').submit(function(e) {
+    e.preventDefault()
+    $.ajax({
+        url: $(this).attr('action'),
+        type: $(this).attr('type'),
+        data: $(this).serialize(),
+        success: function(email) {
+            if (lang == 'en') {
+                alert("Success subscribed: " + email)
+            } else {
+                alert(email + " Subscrito")
+            }
         }
     })
 })

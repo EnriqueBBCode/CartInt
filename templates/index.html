@@ -599,8 +599,8 @@
           <h4 class="translate" id='foo-Subscribe'>
             Subscribe
           </h4>
-          <form action="#">
-            <input type="text" class="translate placeholder-translate" id='foo-sus-ph' placeholder="{{subscribe.email}}" />
+          <form id='subscribe-form' type="POST" action="{% url "sub" %}">
+            <input type="email" class="translate placeholder-translate" name='email' id='foo-sus-ph' placeholder="{{subscribe.email}}" />
             <button style='background:{{theme.button_colors}}' type="submit">
               {{subscribe.texto_submit}}
             </button>

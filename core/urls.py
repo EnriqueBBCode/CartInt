@@ -2,11 +2,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
+from Contacts.views import *
 from Main.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(),name='home'),
+    path('subs/', suscribe,name='sub'),
     path('trans/<lang>/', translate,name='trans'),
 ]
 if settings.DEBUG:

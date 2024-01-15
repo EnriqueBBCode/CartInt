@@ -4,6 +4,7 @@ from .models import *
 from googletrans import Translator
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from Contacts.models import Contact
 import json
 
 @csrf_exempt
@@ -19,6 +20,13 @@ def translate(request,lang):
             print(v)
             print(type(v))
     return HttpResponse(json.dumps(data),content_type='aplication/json')
+
+@csrf_exempt
+def suscribe(request):
+    email = request.POST.get('email')
+    print(email)
+    Contact.objects.create(email=email)
+    return HttpResponse(json.dumps(email),content_type='aplication/json')
 
 class HomeView(View):
     def get(self,request,*args, **kwargs):
