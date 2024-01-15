@@ -7,6 +7,12 @@ body {
     width: 100vw;
 }
 
+@media (max-width:600px) {
+    .header_section .header_top .contact_nav a span {
+        display: none;
+    }
+}
+
 h2 {
     text-transform: capitalize;
 }
@@ -133,6 +139,11 @@ a:focus {
     display: -ms-flexbox;
     display: flex;
     font-size: 15px;
+}
+
+section {
+    width: 100vw;
+    overflow-x: hidden
 }
 
 .header_section .header_top .contact_nav a i {
