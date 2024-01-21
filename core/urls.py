@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(),name='home'),
     path('subs/', suscribe,name='sub'),
+    path('contact/', contact,name='contact'),
     path('trans/<lang>/', translate,name='trans'),
 ]
 if settings.DEBUG:

@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views import View
 from .models import *
 from googletrans import Translator
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-from Contacts.models import Contact
-import json
+from Contacts.models import *
+import json, smtplib
+from django.core.mail import EmailMessage
 
 @csrf_exempt
 def translate(request,lang):
@@ -27,6 +28,30 @@ def suscribe(request):
     print(email)
     Contact.objects.create(email=email)
     return HttpResponse(json.dumps(email),content_type='aplication/json')
+
+def contact(request):
+    print(request.method)
+    if request.method == "POST":
+        message = request.POST['msg']
+        tel = request.POST['phone']
+        Contacting.objects.create(
+            name = request.POST['name'],
+            email = request.POST['email'],
+            phone = tel,
+            msg = message
+        )
+        emails = []
+        for m in Manager.objects.all():
+            emails.append(m.email)
+        email = EmailMessage(
+            f'Un usuario ha contactado {tel}',
+            message,
+            "sendertest@godjango.dev",
+            emails
+        )
+        email.send()
+        print('mail sent')
+    return redirect('home')
 
 class HomeView(View):
     def get(self,request,*args, **kwargs):

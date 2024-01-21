@@ -468,18 +468,19 @@
       <div class="row">
         <div class="col-lg-4 col-md-5 offset-md-1">
           <div class="form_container contact-form">
-            <form action="">
+            <form action="{% url "contact" %}" method="POST">
+              {% csrf_token %}
               <div>
-                <input class="translate placeholder-translate" id="ph-yn" type="text" placeholder="{{contact.name}}" />
+                <input class="translate placeholder-translate" id="ph-yn" name="name" type="text" placeholder="{{contact.name}}" />
               </div>
               <div>
-                <input class="translate placeholder-translate" id="ph-pn" type="text" placeholder="{{contact.phone}}" />
+                <input class="translate placeholder-translate" id="ph-pn" name="phone" type="text" placeholder="{{contact.phone}}" />
               </div>
               <div>
-                <input class="translate placeholder-translate" id="ph-e" type="email" placeholder="{{contact.email}}" />
+                <input class="translate placeholder-translate" id="ph-e" name="email" type="email" placeholder="{{contact.email}}" />
               </div>
               <div>
-                <input class="translate placeholder-translate message-box" id="ps-mb" type="text" placeholder="{{contact.message}}" />
+                <input class="translate placeholder-translate message-box" id="ps-mb" name="msg" type="text" placeholder="{{contact.message}}" />
               </div>
               <div class="btn_box">
                 <button style="background:{{theme.button_colors}}">
