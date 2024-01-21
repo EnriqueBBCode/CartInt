@@ -14,15 +14,15 @@ class Contact(models.Model):
 class Manager2Deleted(models.Model):
     email = models.EmailField()
     
-class Manager(models.Model):
-    email = models.EmailField()
+# class Manager(models.Model):
+#     email = models.EmailField()
     
-    class Meta:
-        verbose_name = 'Managers / Gestores'
-        verbose_name_plural = 'Managers / Gestores'
+#     class Meta:
+#         verbose_name = 'Managers / Gestores'
+#         verbose_name_plural = 'Managers / Gestores'
         
-    def __str__(self):
-        return self.email
+#     def __str__(self):
+#         return self.email
     
 class Contacting(models.Model):
     name = models.CharField(max_length=300,verbose_name="Name / Nombre")
