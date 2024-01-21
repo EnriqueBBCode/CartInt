@@ -10,6 +10,9 @@ class Contact(models.Model):
         
     def __str__(self):
         return self.email
+  
+class Manager2Deleted(models.Model):
+    email = models.EmailField()
     
 class Manager(models.Model):
     email = models.EmailField()
