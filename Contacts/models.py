@@ -12,6 +12,7 @@ class Contact(models.Model):
         return self.email
   
 class Manager(models.Model):
+    name = models.CharField(verbose_name="Name / Nombre", max_length=500)
     email = models.EmailField()
     
     class Meta:
@@ -19,7 +20,7 @@ class Manager(models.Model):
         verbose_name_plural = 'Managers / Gestores'
         
     def __str__(self):
-        return self.email
+        return self.name +' '+self.email
     
 class Contacting(models.Model):
     name = models.CharField(max_length=300,verbose_name="Name / Nombre")
