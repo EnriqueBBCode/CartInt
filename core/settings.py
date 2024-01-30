@@ -19,7 +19,13 @@ INSTALLED_APPS = [
     'ckeditor',
     'Main',
     'Contacts',
+    'django_recaptcha',
 ]
+
+RECAPTCHA_PUBLIC_KEY = '6LfnWmApAAAAAGaYFMRi2kRQffhQ7iUNuNq_yIak'
+RECAPTCHA_PRIVATE_KEY = '6LfnWmApAAAAAEB8Cp9GJmA11ytA-cmSZNjiRRth'
+RECAPTCHA_PROXY = {'http': 'http://127.0.0.1:8000', 'https': 'https://127.0.0.1:8000'}
+RECAPTCHA_DOMAIN = 'cleaningcompany.godjango.dev'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'mail0.godjango.dev'

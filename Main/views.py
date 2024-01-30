@@ -7,6 +7,8 @@ from django.http import HttpResponse
 from Contacts.models import *
 import json, smtplib
 from django.core.mail import EmailMessage
+from django import forms
+from django_recaptcha.fields import ReCaptchaField
 
 @csrf_exempt
 def translate(request,lang):
@@ -62,8 +64,12 @@ def contact(request):
         print('mail sent')
     return redirect('home')
 
+class FormWithCaptcha(forms.Form):
+    captcha = ReCaptchaField()
+
 class HomeView(View):
     def get(self,request,*args, **kwargs):
+        form = FormWithCaptcha()
         header = Header.objects.get(pk=1)
         theme = Theme.objects.get(pk=1)
         carrousel = Carrousel.objects.get(pk=1)
@@ -85,5 +91,10 @@ class HomeView(View):
             'contact':contact,
             'subscribe':suscribe,
             'footer':footer,
+            'form':form,
         }
         return render(request,'index.html',context)
+    
+
+
+    
