@@ -34,18 +34,27 @@ def contact(request):
     if request.method == "POST":
         message = request.POST['msg']
         tel = request.POST['phone']
+        name = request.POST['name']
+        email = request.POST['email']
         Contacting.objects.create(
-            name = request.POST['name'],
-            email = request.POST['email'],
+            name = name,
+            email = email,
             phone = tel,
             msg = message
         )
+        msg = f"""
+        Name / Nombre\n{name}\n
+        Phone / Teléfono\n{tel}\n
+        Email\n{email}\n
+        \n
+        {message}
+        """
         emails = []
         for m in Manager.objects.all():
             emails.append(m.email)
         email = EmailMessage(
-            f'Un usuario ha contactado {tel}',
-            message,
+            f'New Contact / Nuevo Contacto',
+            msg,
             "sendertest@godjango.dev",
             emails
         )
