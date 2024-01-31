@@ -9,6 +9,7 @@ import json, smtplib
 from django.core.mail import EmailMessage
 from django import forms
 from django_recaptcha.fields import ReCaptchaField
+from core import settings
 
 @csrf_exempt
 def translate(request,lang):
@@ -92,6 +93,8 @@ class HomeView(View):
             'subscribe':suscribe,
             'footer':footer,
             'form':form,
+            'form':form,
+            'recaptcha_site_key':settings.RECAPTCHA_SITE_KEY,
         }
         return render(request,'index.html',context)
     
