@@ -9,6 +9,7 @@ import json, smtplib
 from django.core.mail import EmailMessage
 from django import forms
 from django_recaptcha.fields import ReCaptchaField
+from captcha.widgets import ReCaptchaV3
 
 @csrf_exempt
 def translate(request,lang):
@@ -40,7 +41,7 @@ def contact(request):
         recaptcha_response = request.POST.get('g-recaptcha-response')
         recaptcha_score = request.POST.get('g-recaptcha-score')
         RECAPTCHA_PRIVATE_KEY = 'tu_clave_secreta'
-        recaptcha = ReCaptchaField(re_captcha_secret=RECAPTCHA_PRIVATE_KEY, score_threshold=0.5)
+        recaptcha = ReCaptchaV3(re_captcha_secret=RECAPTCHA_PRIVATE_KEY, score_threshold=0.5)
 
         if recaptcha.verify(request, recaptcha_response, recaptcha_score):
             print("F2")

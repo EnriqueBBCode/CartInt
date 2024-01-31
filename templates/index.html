@@ -473,16 +473,16 @@
             <form action="{% url "contact" %}" method="POST">
               {% csrf_token %}
               <div>
-                <input class="translate placeholder-translate" id="ph-yn" name="name" type="text" placeholder="{{contact.name}}" />
+                <input required='' class="translate placeholder-translate" id="ph-yn" name="name" type="text" placeholder="{{contact.name}}" />
               </div>
               <div>
-                <input class="translate placeholder-translate" id="ph-pn" name="phone" type="text" placeholder="{{contact.phone}}" />
+                <input required='' class="translate placeholder-translate" id="ph-pn" name="phone" type="text" placeholder="{{contact.phone}}" />
               </div>
               <div>
-                <input class="translate placeholder-translate" id="ph-e" name="email" type="email" placeholder="{{contact.email}}" />
+                <input required='' class="translate placeholder-translate" id="ph-e" name="email" type="email" placeholder="{{contact.email}}" />
               </div>
               <div>
-                <textarea class="translate placeholder-translate" style="width:100%;height:60px;margin-bottom:5px" id="ps-mb" name="msg" type="text" placeholder="{{contact.message}}"></textarea>
+                <textarea required='' class="translate placeholder-translate" style="width:100%;height:60px;margin-bottom:5px" id="ps-mb" name="msg" type="text" placeholder="{{contact.message}}"></textarea>
               </div>
               {{form.captcha}}
               <br>
