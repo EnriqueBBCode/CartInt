@@ -31,41 +31,45 @@ def suscribe(request):
     Contact.objects.create(email=email)
     return HttpResponse(json.dumps(email),content_type='aplication/json')
 
+class FormWithCaptcha(forms.Form):
+    captcha = ReCaptchaField()
+    
 def contact(request):
     print(request.method)
     if request.method == "POST":
-        message = request.POST['msg']
-        tel = request.POST['phone']
-        name = request.POST['name']
-        email = request.POST['email']
-        Contacting.objects.create(
-            name = name,
-            email = email,
-            phone = tel,
-            msg = message
-        )
-        msg = f"""
-        Name / Nombre\n{name}\n
-        Phone / Teléfono\n{tel}\n
-        Email\n{email}\n
-        \n
-        {message}
-        """
-        emails = []
-        for m in Manager.objects.all():
-            emails.append(m.email)
-        email = EmailMessage(
-            f'New Contact / Nuevo Contacto',
-            msg,
-            "sendertest@godjango.dev",
-            emails
-        )
-        email.send()
-        print('mail sent')
-    return redirect('home')
+        form = FormWithCaptcha(request.POST)
+        if form.is_valid():
+            print("Valido")
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            recaptcha_score = request.POST.get('g-recaptcha-score')
+            RECAPTCHA_PRIVATE_KEY = 'tu_clave_secreta'
+            recaptcha = ReCaptchaField(re_captcha_secret=RECAPTCHA_PRIVATE_KEY, score_threshold=0.5)
 
-class FormWithCaptcha(forms.Form):
-    captcha = ReCaptchaField()
+            if recaptcha.verify(request, recaptcha_response, recaptcha_score):
+                print("F2")
+                message = request.POST['msg']
+                tel = request.POST['phone']
+                name = request.POST['name']
+                email = request.POST['email']
+                Contacting.objects.create(
+                    name = name,
+                    email = email,
+                    phone = tel,
+                    msg = message
+                )
+                msg = f"""Name / Nombre\n{name}\nPhone / Teléfono\n{tel}\nEmail\n{email}\n\n{message}"""
+                emails = []
+                for m in Manager.objects.all():
+                    emails.append(m.email)
+                email = EmailMessage(
+                    f'New Contact / Nuevo Contacto',
+                    msg,
+                    "sendertest@godjango.dev",
+                    emails
+                )
+                email.send()
+                print('mail sent')
+            return redirect('home')
 
 class HomeView(View):
     def get(self,request,*args, **kwargs):
