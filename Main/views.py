@@ -73,8 +73,6 @@ def contact(request):
             )
             email.send()
             print('mail sent')
-        else:
-            return redirect('/error/')
     return redirect('home')
 
 class HomeView(View):
