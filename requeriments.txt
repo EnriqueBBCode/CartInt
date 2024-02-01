@@ -1,0 +1,7 @@
+django
+Pillow
+django-ckeditor
+django-jazzmin
+django-recaptcha
+requests
+googletrans==4.0.0rc1
