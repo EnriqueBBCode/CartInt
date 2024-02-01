@@ -38,7 +38,7 @@ class FormWithCaptcha(forms.Form):
 def check_captcha(captcha_response):
     external_api_url = 'https://www.google.com/recaptcha/api/siteverify'
     data = {
-        'secret': settings.RECAPTCHA_SECRET_KEY,
+        'secret': settings.RECAPTCHA_PRIVATE_KEY,
         'response': captcha_response,
     }
     res = requests.post(external_api_url, data)
