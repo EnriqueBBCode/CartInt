@@ -5,10 +5,11 @@ from googletrans import Translator
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from Contacts.models import *
-import json, smtplib
+import json, requests
 from django.core.mail import EmailMessage
 from django import forms
 from django_recaptcha.fields import ReCaptchaField
+from core import settings
 
 @csrf_exempt
 def translate(request,lang):
@@ -34,11 +35,22 @@ def suscribe(request):
 class FormWithCaptcha(forms.Form):
     captcha = ReCaptchaField()
 
+def check_captcha(captcha_response):
+    external_api_url = 'https://www.google.com/recaptcha/api/siteverify'
+    data = {
+        'secret': settings.RECAPTCHA_SECRET_KEY,
+        'response': captcha_response,
+    }
+    res = requests.post(external_api_url, data)
+    if res.json()['success']:
+        return True
+    else:
+        return False
+
 def contact(request):
     print(request.method)
     if request.method == "POST":
-        form = FormWithCaptcha(request.POST)
-        if form.is_valid():
+        if check_captcha(request.POST['g-recaptcha-response']):
             message = request.POST['msg']
             tel = request.POST['phone']
             name = request.POST['name']
@@ -62,7 +74,7 @@ def contact(request):
             email.send()
             print('mail sent')
         else:
-            print("bad")
+            return redirect('/error/')
     return redirect('home')
 
 class HomeView(View):
@@ -92,7 +104,3 @@ class HomeView(View):
             'form':form,
         }
         return render(request,'index.html',context)
-    
-
-
-    
