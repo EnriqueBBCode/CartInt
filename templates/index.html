@@ -310,8 +310,9 @@
             <h2 id="trackh1" class="translate">{{track.title}}</h2>
           </div>
           <p class="translate" id="track-p">{{track.detail|linebreaksbr}}</p>
-          <form action="">
-            <input class="translate placeholder-translate" id="placeholder" type="text" placeholder="{{track.number_text}}" />
+          <form action="{% url "track" %}" method="POST">
+            {% csrf_token %}
+            <input name="track" class="translate placeholder-translate" id="placeholder" type="text" placeholder="{{track.number_text}}" />
             <button class="translate" id="trackbtn" style="background:{{theme.button_colors}}" type="submit">{{track.btn}}</button>
           </form>
         </div>

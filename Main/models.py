@@ -263,6 +263,7 @@ class Footer(models.Model):
         return "Footer / Pie de Página"
     
 class Suscribe(models.Model):
+    
     email = models.CharField(max_length=500,verbose_name="Email / Email")
     texto_submit = models.CharField(max_length=500, verbose_name="Text Suscribe / Text de Suscripcion")
     copyright = models.CharField(max_length=500,verbose_name="Copyright")
@@ -283,3 +284,13 @@ class Suscribe(models.Model):
     
     def __str__(self):
         return "Suscribe / Suscripción"
+    
+class Ship(models.Model):
+    text = models.CharField(max_length=500, verbose_name="Text / Texto")
+    
+    class Meta:
+        verbose_name = 'Find shiping / Buscar envío'
+        verbose_name_plural = 'Find shiping / Buscar envío'
+    
+    def __str__(self):
+        return self.text
