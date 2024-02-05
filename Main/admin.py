@@ -51,6 +51,8 @@ class ReviewSectionAdmin(admin.ModelAdmin):
 admin.site.register(ContactUs)
 admin.site.register(Footer)
 admin.site.register(Suscribe)
-# admin.site.register(Shiping)
+admin.site.register(Shiping)
+
+
 # class ContactUsAdmin(admin.ModelAdmin):
 #     form = ContactUsForm

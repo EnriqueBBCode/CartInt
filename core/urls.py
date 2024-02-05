@@ -11,7 +11,7 @@ urlpatterns = [
     path('subs/', suscribe,name='sub'),
     path('contact/', contact,name='contact'),
     path('trans/<lang>/', translate,name='trans'),
-    # path('tracking/', track,name='track'),
+    path('tracking/', track,name='track'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

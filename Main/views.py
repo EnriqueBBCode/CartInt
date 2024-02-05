@@ -75,12 +75,12 @@ def contact(request):
             print('mail sent')
     return redirect('home')
 
-# def track(request):
-#     if request.method == 'POST':
-#         track = request.POST['track']
-#         Shiping.objects.create(text=track)
+def track(request):
+    if request.method == 'POST':
+        track = request.POST['track']
+        Shiping.objects.create(text=track)
         
-#     return redirect('home')
+    return redirect('home')
 
 class HomeView(View):
     def get(self,request,*args, **kwargs):
