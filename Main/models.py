@@ -285,7 +285,7 @@ class Suscribe(models.Model):
     def __str__(self):
         return "Suscribe / Suscripción"
     
-class Ship(models.Model):
+class Shiping(models.Model):
     text = models.CharField(max_length=500, verbose_name="Text / Texto")
     
     class Meta:

@@ -78,7 +78,7 @@ def contact(request):
 def track(request):
     if request.method == 'POST':
         track = request.POST['track']
-        Ship.objects.create(text=track)
+        Shiping.objects.create(text=track)
         
     return redirect('home')
 
