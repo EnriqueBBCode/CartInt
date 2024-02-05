@@ -285,12 +285,12 @@ class Suscribe(models.Model):
     def __str__(self):
         return "Suscribe / Suscripción"
     
-class Shiping(models.Model):
-    text = models.CharField(max_length=500, verbose_name="Text / Texto")
+# class Shiping(models.Model):
+#     text = models.CharField(max_length=500, verbose_name="Text / Texto")
     
-    class Meta:
-        verbose_name = 'Find shiping / Buscar envío'
-        verbose_name_plural = 'Find shiping / Buscar envío'
+#     class Meta:
+#         verbose_name = 'Find shiping / Buscar envío'
+#         verbose_name_plural = 'Find shiping / Buscar envío'
     
-    def __str__(self):
-        return self.text
+#     def __str__(self):
+#         return self.text
