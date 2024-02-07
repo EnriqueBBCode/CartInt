@@ -53,6 +53,11 @@ admin.site.register(Footer)
 admin.site.register(Suscribe)
 admin.site.register(Shiping)
 
-
 # class ContactUsAdmin(admin.ModelAdmin):
 #     form = ContactUsForm
+
+"""
+https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d117459.10941738653!2d-82.3656448!3d23.0752256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scu!4v1705264250760!5m2!1ses-419!2scu
+luismiguel@godjango.dev
+lmdelbahia@gmail.com
+"""
