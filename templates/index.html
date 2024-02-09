@@ -24,7 +24,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  {% comment %} <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" /> {% endcomment %}
+  <link rel="stylesheet" type="text/css" href="{% static "css/c.css" %}" />
 
   <!-- font awesome style -->
   <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet" />
@@ -178,7 +179,7 @@
     <div class="service_container">
       <div class="container ">
         <div class="heading_container">
-          <h2 class="translate" id="h2services">Our <span>Services</span></h2>
+          <h2 class="translate" id="h2services">{{service.title}}</span></h2>
           
           <p class="translate" id="servicessubtitle">{{service.sub_title}}</p>
         </div>
@@ -266,20 +267,15 @@
     </div>
   </section>
 
-  <!-- end service section -->
-
-
-  <!-- about section -->
-
   <section id="About" class="about_section layout_padding-bottom">
     <div class="container  ">
       <div class="row">
         <div class="col-md-6">
           <div style='padding: 0 0 40px 0' class="detail-box">
             <div class="heading_container">
-              <h2 class="translate" id="aboutusid">About <span>Us</span></h2>
+              <h2 class="translate" id="aboutusid">{{about.title}}</h2>
             </div>
-            <h4 class="translate" id="h4about">{{about.title}}</h4>
+            {% comment %} <h4 class="translate" id="h4about">{{about.title}}</h4> {% endcomment %}
             <p class="translate parrafo-small" id="aboutp">{{about.detail}}</p>
             <a class="translate btnreadmore" text="aboutp" id="readmoreabout" style="background-color:{{theme.button_colors}}">{{about.read_more}}</a>
           </div>
@@ -326,7 +322,7 @@
     <div class="container">
       <div class="heading_container">
         <h2 style="padding:20px" class="translate" id='wsoc'>
-          What Says Our <span>Client</span>
+          {{review.title}}
         </h2>
       </div>
       <div class="client_container">
@@ -371,7 +367,7 @@
         <div class="col-lg-4 col-md-5 offset-md-1">
           <div class="heading_container">
             <h2 style="padding:50px 0 0 0">
-              Contact Us
+              Contact <span>Us</span>
             </h2>
           </div>
         </div>
@@ -544,8 +540,7 @@
   <!-- bootstrap js -->
   <script type="text/javascript" src="{% static "js/bootstrap.js" %}"></script>
   <!-- owl slider -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
+  <script type="text/javascript" src={% static "js/c.js" %}></script>
   <!-- custom js -->
   <script type="text/javascript" src="{% static "js/custom.js" %}"></script>
   <script type="text/javascript" src="{% static "js/translator.js" %}"></script>
