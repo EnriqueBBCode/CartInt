@@ -25,8 +25,6 @@
 
   <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <!-- Agrega el enlace a la hoja de estilos de Owl Carousel -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
   <!-- font awesome style -->
   <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet" />
@@ -333,7 +331,7 @@
       </div>
       <div class="client_container">
         <div class="carousel-wrap ">
-          <div class="owl-carousel">
+          <div class="owl-carousel owl-loaded owl-drag">
             {% for r in review.reviews.all %}
             <div class="item">
               <div class="box">
@@ -358,94 +356,6 @@
               </div>
             </div>
             {% endfor %}
-            {% comment %} <div class="item">
-              <div class="box">
-                <div class="detail-box">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                  </p>
-                </div>
-                <div class="client_id">
-                  <div class="img-box">
-                    <img src="images/client-1.png" alt="" class="img-1">
-                  </div>
-                  <div class="name">
-                    <h6>
-                      Adipiscing
-                    </h6>
-                    <p>
-                      Magna
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="box">
-                <div class="detail-box">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                  </p>
-                </div>
-                <div class="client_id">
-                  <div class="img-box">
-                    <img src="images/client-2.png" alt="" class="img-1">
-                  </div>
-                  <div class="name">
-                    <h6>
-                      Adipiscing
-                    </h6>
-                    <p>
-                      Magna
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="box">
-                <div class="detail-box">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                  </p>
-                </div>
-                <div class="client_id">
-                  <div class="img-box">
-                    <img src="images/client-1.png" alt="" class="img-1">
-                  </div>
-                  <div class="name">
-                    <h6>
-                      Adipiscing
-                    </h6>
-                    <p>
-                      Magna
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="box">
-                <div class="detail-box">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                  </p>
-                </div>
-                <div class="client_id">
-                  <div class="img-box">
-                    <img src="images/client-2.png" alt="" class="img-1">
-                  </div>
-                  <div class="name">
-                    <h6>
-                      Adipiscing
-                    </h6>
-                    <p>
-                      Magna
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div> {% endcomment %}
           </div>
         </div>
       </div>
@@ -621,8 +531,6 @@
     <div class="container">
       <p>
         {{subscribe.copyright}}
-        {% comment %} &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a> {% endcomment %}
       </p>
     </div>
   </section>

@@ -1,23 +1,12 @@
-// to get current year
-function getYear() {
-    var currentDate = new Date();
-    var currentYear = currentDate.getFullYear();
-    document.querySelector("#displayYear").innerHTML = currentYear;
-}
-
-getYear();
-
 $(".btnreadmore").click(function() {
     var p = $(this).attr('text');
     $("#" + p).toggleClass('parrafo-small')
 });
 //  owl carousel script
 $(".owl-carousel").owlCarousel({
-    loop: false,
+    loop: true,
     margin: 20,
     nav: true,
-    // navText: ['&#10094;', '&#10095;'],'<i class="fa fa-arrow-left"></i>', '<i class="fa fa-arrow-right"></i>'
-    // navText: ['\u2190', '\u2192'],
     navText: [],
     autoplay: true,
     autoplayHoverPause: true,
