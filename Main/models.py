@@ -244,6 +244,8 @@ class Footer(models.Model):
     
     title = models.CharField(verbose_name="Title / Título", max_length=500)
     info = models.TextField(verbose_name="Info / Info")
+    
+    copyright = models.CharField(max_length=500,verbose_name="Copyright")
 
     class Meta:
         verbose_name = 'Footer / Pie de Página'
@@ -266,7 +268,6 @@ class Suscribe(models.Model):
     
     email = models.CharField(max_length=500,verbose_name="Email / Email")
     texto_submit = models.CharField(max_length=500, verbose_name="Text Suscribe / Text de Suscripcion")
-    copyright = models.CharField(max_length=500,verbose_name="Copyright")
     
     class Meta:
         verbose_name = 'Subscribe / Subscripción'

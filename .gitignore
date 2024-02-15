@@ -6,4 +6,5 @@ core/__pycache__/
 Main/__pycache__/
 Contacts/__pycache__/
 Main/migrations/__pycache__/
+Contacts/migrations/__pycache__/
 media/

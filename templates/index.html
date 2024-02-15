@@ -25,7 +25,7 @@
 
   <!--owl slider stylesheet -->
   {% comment %} <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" /> {% endcomment %}
-  <link rel="stylesheet" type="text/css" href="{% static "css/c.css" %}" />
+  <link rel="stylesheet" type="text/css" href={% static "css/c.css" %} />
 
   <!-- font awesome style -->
   <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet" />
@@ -127,7 +127,7 @@
             <span class="overlay"></span>
             <div class="detail-box position-relative">
               <h1 style="max_width:600px" class="translate" id="h11">{{carrousel.title}}</h1>
-              <p class="translate" id="p1">{{carrousel.sub_title}}</p>
+              <p class="translate" id="p1">{{carrousel.sub_title|linebreaksbr}}</p>
               <div class="btn-box">
                 <a href="{{carrousel.button_link}}" style="background-color:{{theme.button_colors}}" id="car-btn1" class="btn1 btn translate">
                   Read More
@@ -139,7 +139,7 @@
             <span class="overlay"></span>
             <div class="detail-box position-relative">
               <h1 style="max_width:600px" class="translate" id="h22">{{carrousel.title_1}}</h1>
-              <p class="translate" id="p2">{{carrousel.sub_title_1}}</p>
+              <p class="translate" id="p2">{{carrousel.sub_title_1|linebreaksbr}}</p>
               <div class="btn-box">
                 <a href="{{carrousel.button_link_1}}" style="background-color:{{theme.button_colors}}" id="car-btn2" class="btn1 btn translate">
                   Read More
@@ -151,7 +151,7 @@
             <span class="overlay"></span>
             <div class="detail-box position-relative">
               <h1 style="max_width:600px" class="translate" id="h33">{{carrousel.title_2}}</h1>
-              <p class="translate" id="p3">{{carrousel.sub_title_2}}</p>
+              <p class="translate" id="p3">{{carrousel.sub_title_2|linebreaksbr}}</p>
               <div class="btn-box">
                 <a href="{{carrousel.button_link_2}}" style="background-color:{{theme.button_colors}}" id="car-btn3" class="btn1 btn translate">
                   Read More
@@ -179,7 +179,7 @@
     <div class="service_container">
       <div class="container ">
         <div class="heading_container">
-          <h2 class="translate" id="h2services">{{service.title}}</span></h2>
+          <h2 class="translate" id="h2services">Our <span>Services</span></h2>
           
           <p class="translate" id="servicessubtitle">{{service.sub_title}}</p>
         </div>
@@ -267,16 +267,21 @@
     </div>
   </section>
 
+  <!-- end service section -->
+
+
+  <!-- about section -->
+
   <section id="About" class="about_section layout_padding-bottom">
     <div class="container  ">
       <div class="row">
         <div class="col-md-6">
           <div style='padding: 0 0 40px 0' class="detail-box">
             <div class="heading_container">
-              <h2 class="translate" id="aboutusid">{{about.title}}</h2>
+              <h2 class="translate" id="aboutusid">About <span>Us</span></h2>
             </div>
-            {% comment %} <h4 class="translate" id="h4about">{{about.title}}</h4> {% endcomment %}
-            <p class="translate parrafo-small" id="aboutp">{{about.detail}}</p>
+            <h4 class="translate" id="h4about">{{about.title}}</h4>
+            <p class="translate parrafo-small" id="aboutp">{{about.detail|linebreaksbr}}</p>
             <a class="translate btnreadmore" text="aboutp" id="readmoreabout" style="background-color:{{theme.button_colors}}">{{about.read_more}}</a>
           </div>
         </div>
@@ -322,7 +327,7 @@
     <div class="container">
       <div class="heading_container">
         <h2 style="padding:20px" class="translate" id='wsoc'>
-          {{review.title}}
+          What Says Our <span>Client</span>
         </h2>
       </div>
       <div class="client_container">
@@ -367,7 +372,7 @@
         <div class="col-lg-4 col-md-5 offset-md-1">
           <div class="heading_container">
             <h2 style="padding:50px 0 0 0">
-              Contact <span>Us</span>
+              Contact Us
             </h2>
           </div>
         </div>
@@ -540,12 +545,31 @@
   <!-- bootstrap js -->
   <script type="text/javascript" src="{% static "js/bootstrap.js" %}"></script>
   <!-- owl slider -->
+  {% comment %} <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> {% endcomment %}
   <script type="text/javascript" src={% static "js/c.js" %}></script>
   <!-- custom js -->
   <script type="text/javascript" src="{% static "js/custom.js" %}"></script>
   <script type="text/javascript" src="{% static "js/translator.js" %}"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <script>
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 20,
+      nav: true,
+      navText: [],
+      autoplay: true,
+      autoplayHoverPause: true,
+      responsive: {
+          0: {
+              items: 1
+          },
+          1000: {
+              items: 2
+          }
+      }
+  });
   </script>
   <!-- End Google Map -->
 </body>
